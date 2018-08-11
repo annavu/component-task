@@ -2,24 +2,215 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
 @import 'variables';
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background:$bg-body;
   font-family: 'Rubik', sans-serif;
-}
-
-.container {
+  // position: relative;
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.one {
-  background-color: #192532;
-  width: 200px;
-  height: 200px;
-}
-
-.two {
-  background-color: #405a74;
-  width: 200px;
-  height: 200px;
-}
+.table {
+  /* //   position: absolute;
+  //   top:50%;
+  //   left: 50%;
+  //   transform: translate(-50%,-50%); */
+    width: 640px;
+    height: 314px;
+  }
+  
+  .table__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0 12px;
+  }
+  
+  .table__content {
+    background-color: #192532;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin: 0 12px;
+  }
+  
+  .row:hover {
+    background: #405a74;
+    margin-left: -11px;
+    padding-left: 11px;
+    margin-right: -1px;
+    padding-right: 1px;
+  }
+  
+  .cell--header {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    color: #7da4cd;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.36px;
+  }
+  /* 
+  .row__cell {
+    color: #fff;
+    width: 25%;
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+  }
+  
+  .row__cell--img {
+    display: flex;
+    align-items: center;
+    position: relative;
+  } */
+  
+  
+  .icon {
+    margin-left: 70px;
+    color: red;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  /* 
+  .row:hover > .row__cell--img > .icon::after {
+    content: 'DELETE';
+    display: block;
+    height: 20px;
+    width: 60px;
+    color: #ddd;
+    position: absolute;
+    top:0;
+    left: -20px;;
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .row:hover > .row__cell--img > .icon {
+    background: red;
+    color: #ddd;
+    transition: 0.3s ease;
+  } */
+  
+  
+  
+  
+  
+  /* .row > .row__cell--img > .fa:hover::after {
+    content: 'DELETE';
+    display: block;
+    height: 20px;
+    width: 60px;
+    color: #ddd;
+    position: absolute;
+    top:0;
+    left: -20px;;
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  } */
+  
+  /* .row--hover {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top:-5%;
+    left: -10px;
+    transition: all 0.1s ease;
+    z-index: -5;
+  } */
+  
+  /* .row__cell--img:hover ~ .row--hover{
+    background: #405a74;
+    width: 640px;
+    height: 19px;
+    
+  } */
+  
+  /* // .row__cell--img:hover {
+  //   background: rgb(94, 14, 14);
+  //   transition: all 0.3s ease;
+  // }
+  
+  
+  // .row > .row__cell--img:hover > .img {
+  //   background: red;
+  // }
+  
+  // .row:hover {
+  //   background: green;
+  // } */
+  
+  /* .row > .row__cell--img >.img:hover {
+    background: blue;
+  } */
+  
+  .cell {
+    color: #fff;
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+    
+  }
+  
+  .cell--first {
+    width: 34%;
+  }
+  
+  .cell--second {
+    width: 26%
+  }
+  
+  .cell--third {
+    width: 25%;
+  }
+  
+  
+  .cell__text {
+    padding: 0 15px;
+  }
+  
+  .cell--img, .cell--fourth {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 15%;
+  }
+  
+  
+  .row:hover > .cell--img > .icon::after {
+    content: 'DELETE';
+    display: block;
+    height: 20px;
+    width: 60px;
+    color: #ddd;
+    position: absolute;
+    top:0;
+    left: -20px;;
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .row:hover > .cell--img > .icon {
+    background: red;
+    color: #ddd;
+    transition: 0.3s ease;
+  }
