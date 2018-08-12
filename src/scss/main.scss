@@ -5,14 +5,15 @@
 * {
   margin: 0;
   padding: 0;
+  /* box-sizing: border-box; */
 }
 
 body {
   margin: 0;
   padding: 0;
-  background:$bg-body;
+  background:#22303f;;
   font-family: 'Rubik', sans-serif;
-  // position: relative;
+  /* // position: relative; */
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -24,8 +25,10 @@ body {
   //   top:50%;
   //   left: 50%;
   //   transform: translate(-50%,-50%); */
-    width: 640px;
-    height: 314px;
+  width: 640px;
+  height: 314px;
+    /* overflow: hidden; */
+
   }
   
   .table__header {
@@ -33,11 +36,48 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    margin: 0 12px;
+    margin: 0 12px 3.5px 12px;
   }
   
   .table__content {
     background-color: #192532;
+    height: 314px;
+    border-radius:4px;
+    overflow: hidden;
+    overflow-y: hidden;
+      overflow-x: hidden;
+    /* // overflow-x: visible; */
+    position: relative;
+    padding-top: 6.5px;
+  }
+
+
+
+  .table__content::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  .table__content::before {
+    content: '';
+    display: block;
+    width: 640px;
+    height: 2px;
+    background: #23313f;
+    position: absolute;
+    top: 1.5%;
+    left: 0;
+  }
+
+  .table__content::after {
+    content: '';
+    display: block;
+    width: 640px;
+    height: 6px;
+    background: #192532;
+    border-top: #23313f solid 2px;;
+    position: absolute;
+    top: 98.3%;
+    left: 0;
   }
   
   .row {
@@ -46,18 +86,43 @@ body {
     align-items: center;
     position: relative;
     cursor: pointer;
-    margin: 0 12px;
+    margin: 0  12px;
+    border-bottom: 1px #111d29 solid;
+    
   }
+
+  .row::-webkit-scrollbar { 
+    display: none;  
+}
+/* 
+.row--first {
+  margin-top: 4px;
+} */
+  .row--last {
+    border-bottom: none;
+  }
+
+  
   
   .row:hover {
     background: #405a74;
-    margin-left: -11px;
-    padding-left: 11px;
-    margin-right: -1px;
-    padding-right: 1px;
+    margin: 0;
+    padding: 0 0 0 12px;
+  ;
   }
   
-  .cell__text--header {
+
+
+  .cell__text {
+    padding: 11.5px 15px;
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+  }
+
+  .cell__header {
+    padding: 11.5px 15px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     color: #7da4cd;
     font-size: 18px;
@@ -65,26 +130,31 @@ body {
     letter-spacing: -0.36px;
   }
  
+  .cell__header--age {
+ padding-left: 5px;
+  }
+
+  .cell__header--zodiac {
+    
+    padding-left: 0px;
+  }
   
+.cell__header--action {
+  padding-left: 0px;
+}
+
   .icon {
     margin-left: 70px;
-    color: red;
+    color:#f43b3b;
     transition: 0.3s ease;
     cursor: pointer;
+    /* // font-size: 18px; */
   }
   
-  
-  .cell {
-    color: #fff;
-    color: #ddd;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.28px;
-    
-  }
   
   .cell--first {
-    width: 34%;
+    width: 36%;
+    
   }
   
   .cell--second {
@@ -96,34 +166,64 @@ body {
   }
   
   
-  .cell__text {
-    padding: 0 15px;
-  }
-  
   .cell--img, .cell--fourth {
     display: flex;
     align-items: center;
     position: relative;
-    width: 15%;
+    width: 11%;
+  }
+
+
+
+  .cell--img {
+  min-height: 40px;
+padding: 0 6px 0 18px; 
+   
+  }
+
+
+  .row:hover > .cell--img {
+    width: 13%
+    }
+  row:hover > .cell--img {
+    padding:0 12px 0 0;
   }
   
+  .delete {
+    display: none;
+  }
   
-  .row:hover > .cell--img > .icon::after {
-    content: 'DELETE';
+  .row:hover > .cell--img > .delete {
+    color: #ddd;
     display: block;
-    height: 20px;
-    width: 60px;
-    color: #ddd;
-    position: absolute;
-    top:0;
-    left: -20px;;
-    background: red;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 500;
+    /* margin-top:1px; */
+    font-size: 12px;
+   margin-top: 0.9px; 
+   margin-right: 6px;
   }
-  
-  .row:hover > .cell--img > .icon {
-    background: red;
+
+  /* .row:hover > .cell--img > .fa {
+    /* margin: 0 0 0.5px 20px; */
+   
+
+  .fa {
+    color:#f43b3b;
+    opacity: 0.5;
+    margin-left: 50px;
+    padding-right: 2px;
+    font-size: 18px
+  }
+
+  .row:hover > .cell--img  {
+    background: #f43b3b;
+   
+  }
+
+  .row:hover > .cell--img > .fa{
     color: #ddd;
-    transition: 0.3s ease;
+    margin-left: 0px;
+    opacity: 1;
+    font-size: 18px;
   }
