@@ -18,9 +18,13 @@ class Tooltip {
   displayTooltip(e,obj) {
     console.log(obj.dataset.tooltip);
     console.log(e);
-    this.tooltipContainer.innerHTML = obj.dataset.tooltip + `<button class="tooltip-container__btn">yes</button>`;
-    this.tooltipContainer.style.top = e.pageY + 13 + 'px';
-    this.tooltipContainer.style.left = `${e.pageX}px`;
+    this.tooltipContainer.innerHTML = obj.dataset.tooltip + `<div class="action">
+    <button class="action__btn action__btn--no">no</button>
+    <button class="action__btn action__btn--yes">yes</button>
+    </div>`;
+    obj.appendChild(this.tooltipContainer)
+    this.tooltipContainer.style.top = '100%';
+    this.tooltipContainer.style.left = '50%';
     // this.tooltipContainer.style.opacity = 1;
     this.fadeIn(this.tooltipContainer)
   }

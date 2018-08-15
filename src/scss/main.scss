@@ -252,20 +252,40 @@ padding: 0 6px 0 18px;
     opacity:0;
     background: #2d4053;
     color: #ddd;
-    padding: 10px;
-    position: fixed;
+    // padding: 10px;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 300px;
+    transform: translateX(-50%);
+    width: 600px;
     font-size: 13px;
     font-weight: 500;
     z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom-left-radius: 4px;
+   
   }
 
-  .tooltip-container__btn {
+  .action{
+    height: 100%;
+  }
+
+  .action__btn {
     background: #2d4053;
     color: #ddd;
     border: none;
-    position: absolute;
-    right: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 8px 25px;
+    cursor: pointer;
+    border-left: 1px solid #000;
+  }
+
+  .action__btn--yes {
+    background: green;
+    border-bottom-right-radius: 4px;
   }
