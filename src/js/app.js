@@ -8,7 +8,9 @@ const rows = document.querySelectorAll('.row');
 const deleteButtons = document.querySelectorAll('.cell--img');
 const icons = document.querySelectorAll('.fa');
 const tooltips = document.querySelectorAll('.tooltip');
-// const tooltipContainer = document.querySelector('.tooltip-container');
+const tooltipContainer = document.querySelector('.tooltip-container');
+const noBtn = document.querySelector('.action__btn--no');
+
 
 // function displayTooltip(e,obj) {
 //   console.log(obj.dataset.tooltip);
@@ -18,10 +20,6 @@ const tooltips = document.querySelectorAll('.tooltip');
 //   tooltipContainer.style.top = e.pageY + 13 + 'px';
 //   tooltipContainer.style.left = `${e.pageX}px`;
 // }
-
-function update(obj, newclass) {
-
-}
 
 
 
@@ -56,13 +54,13 @@ deleteButtons.forEach(function(btn) {
       tooltip.displayTooltip(e, this.parentNode);
 
       // btn.parentNode.remove();
-      // table.style.height = 'auto';
+      table.style.height = 'auto';
     } else {
       
         btn.parentNode.classList.add('row--clicked');
         btn.parentNode.classList.add('nohover');
         console.log(btn.children[1])
-        btn.children[1].remove()
+        updateUi.removeElement(this.children[1])
         tooltip.displayTooltip(e, this.parentNode)
        
         // btn.parentNode.remove();
@@ -70,4 +68,20 @@ deleteButtons.forEach(function(btn) {
         
     }
   })
+})
+
+tooltipContainer.addEventListener('click', function(e) {
+  if(e.target.classList.contains('action__btn--yes')) {
+    console.log(e.target)
+    tooltipContainer.parentNode.remove();
+    table.style.height = 'auto';
+  } else if(e.target.classList.contains('action__btn--no')) {
+    updateUi.removeClass(tooltipContainer.parentNode);
+    tooltipContainer.previousElementSibling.children[1].style.display = 'block';
+    // console.log(tooltipContainer.previousElementSibling.children[1])
+    console.log(noBtn.parentNode.parentNode.parentNode)
+    console.log(tooltipContainer.parentNode)
+    tooltip.hideTooltip(tooltipContainer.parentNode);
+    console.log(e.target.closest('.row'));
+  }
 })
