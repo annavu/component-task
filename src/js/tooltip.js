@@ -27,7 +27,14 @@ class Tooltip {
     this.tooltipContainer.innerHTML = obj.dataset.tooltip;
     this.tooltipContainer.appendChild(this.action)
     obj.appendChild(this.tooltipContainer)
-    this.tooltipContainer.style.top = '103%';
+    if (obj.nextElementSibling === null){
+      this.tooltipContainer.style.top = '-77%';
+      console.log(obj.nextSibling)
+    } else {
+      this.tooltipContainer.style.top = '103%';
+      console.log(obj.nextElementSibling)
+    }
+    
     this.tooltipContainer.style.left = '50%';
     // this.tooltipContainer.style.opacity = 1;
     this.fadeIn(this.tooltipContainer)
