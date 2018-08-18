@@ -1,0 +1,327 @@
+.table__content {
+  background-color: $bg-table-content;
+  height: 314px;
+  width:100%;
+  border-radius:4px;
+  position: relative;
+  padding-top: 6.5px;
+  transition: $transition;
+  @media(max-width:604px) {
+    height: auto;
+  }
+
+  .row, .row--last {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin: 0  12px;
+    border-bottom: $border-bottom;  
+
+    .cell__text {
+      padding: 11.5px 15px;
+      color: $font-color;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.28px;
+      @media(max-width:499px) {
+        padding: 11.5px 0;
+        font-size: 13px;
+      }
+      @media(max-width:375px) {
+        font-size: 12px;
+      }
+    }
+
+    .cell--img {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 11%;
+      min-height: 40px;
+      padding: 0 6px 0 18px; 
+      @media(max-width:499px) {
+        padding: 0 6px 0 18px;
+      }
+
+      .delete {
+        display: none;
+      }
+
+      .fa {
+        color:$red;
+        opacity: 0.5;
+        margin-left: 50px;
+        padding-right: 2px;
+        font-size: 18px;
+        @media(max-width:650px) {
+          margin-left: 45px; 
+        }
+        @media(max-width:604px) {
+          margin-left: 35px; 
+        }
+        @media(max-width:499px) {
+          margin-left: 30px; 
+        }
+        @media(max-width:375px) {
+          margin-left:20px;
+        }
+      }
+    }
+  }
+
+
+  .row {  
+    &:not(.nohover):hover {
+      background: $row-bg-hover;
+      margin: 0;
+      padding: 0 0 0 12px;
+      margin-left: -12px;
+      @media(max-width:499px) {
+        padding: 0 0 0 24px;
+      }
+    }
+
+    &:not(.nohover):hover > .cell--img {
+      width: 13%;
+      background: $red;
+      @media(max-width:650px) {
+        padding: 0 11px 0 18px;
+        }
+      @media(max-width:604px) {
+        width: 7%;
+        }  
+      }
+  
+    &:not(.nohover):hover > .cell--img > .delete {
+      color: $font-color;
+      display: block;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 12px;
+      margin-top: 0.9px; 
+      margin-right: 6px;
+      @media(max-width:604px) {
+        display: none; 
+      }
+    }
+
+    &:not(.nohover):hover >.cell--first {
+      @media(max-width:604px) {
+        padding-right: 12px;
+      }
+    }
+
+    &:not(.nohover):hover >.cell--second {
+      @media(max-width:604px) {
+        padding-right: 5px;
+      }
+      @media(max-width:375px) {
+        padding-right: 3px;
+      }
+    }
+
+    &:not(.nohover):hover >.cell--third {
+      @media(max-width:604px) {
+        padding-right: 40px;
+      }
+      @media(max-width:499px) {
+        padding-right: 30px;
+      }
+      @media(max-width:375px) {
+        padding-right: 25px;
+      }
+    }
+
+    &:not(.nohover):hover > .cell--img > .fa {
+      @media(max-width:499px) {
+        margin-left: 2px;
+      }
+      @media(max-width:375px) {
+        margin-left: -2px;
+      }
+    }
+  }
+
+  .row--last {
+    border-bottom: none;
+  }
+
+  .row--lasthover {
+    &:not(.nohover) {
+    background: $row-bg-hover;
+    margin: 0;
+    padding: 0 0 0 12px;
+    margin-left: -12px;
+    @media(max-width:499px) {
+      padding: 0 0 0 24px;
+    }
+    }
+
+    &:not(.nohover) > .cell--img {
+    width: 13%;
+    background: $red;
+    @media(max-width:650px) {
+      padding: 0 11px 0 18px;
+      }
+    @media(max-width:604px) {
+      width: 7%;
+    }  
+    }
+
+    &:not(.nohover) > .cell--img > .delete {
+    color: $font-color;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: 0.9px; 
+    margin-right: 6px;
+    @media(max-width:604px) {
+      display: none; 
+      }
+    }
+
+    &:not(.nohover) >.cell--first {
+      @media(max-width:604px) {
+        padding-right: 12px;
+      }
+    }
+
+    &:not(.nohover) >.cell--second {
+      @media(max-width:604px) {
+        padding-right: 5px;
+      }
+      @media(max-width:375px) {
+        padding-right: 3px;
+      }
+    }
+
+    &:not(.nohover) >.cell--third {
+      @media(max-width:604px) {
+        padding-right: 40px;
+      }
+      @media(max-width:499px) {
+        padding-right: 30px;
+      }
+      @media(max-width:375px) {
+        padding-right: 25px;
+      }
+    }
+
+    &:not(.nohover) > .cell--img > .fa {
+      @media(max-width:499px) {
+        margin-left: 2px;
+      }
+      @media(max-width:375px) {
+        margin-left: -2px;
+      }
+    }
+  }
+
+
+  .row, .row--lasthover {
+    &:not(.nohover):hover > .cell--img > .fa{
+      color: $font-color;
+      margin-left: 0px;
+      opacity: 1;
+      font-size: 18px;
+      @media(max-width:604px) {
+        margin-left: 5px;
+      }
+    }
+  }
+
+
+  .row--clicked {
+    background: $row-bg-hover;
+    margin-right: -12px;
+    padding-right: 24px;
+    margin-left: -12px;
+    padding-left: 12px;
+  }
+  
+
+  .tooltip-container {
+    opacity:0;
+    background: $tooltip-bg;
+    color: $font-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom-left-radius: $bottom-left-radius; 
+
+    .action{
+      height: 100%;
+
+      .action__btn {
+        background: $tooltip-bg;
+        color: $font-color;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 8px 25px;
+        cursor: pointer;
+        border-left: 1px solid #000;
+        @media(max-width:499px) {
+          width: 100%;
+        }
+      }
+
+      .action__btn--yes {
+        background: $green;
+        border-bottom-right-radius: $bottom-right-radius;
+      }
+    }
+  }
+}
+
+
+.table__content::before {
+  content: '';
+  display: block;
+  width: 640px;
+  height: 2px;
+  background: $table-line-color;
+  position: absolute;
+  top: 1.5%;
+  left: 0;
+  @media(max-width:650px) {
+    width: 100%;
+  }
+}
+
+.table__content::after {
+  content: '';
+  display: block;
+  width: 640px;
+  height: 6px;
+  background: $bg-table-content;
+  border-top: $table-line-color solid 2px;;
+  position: absolute;
+  top: 98.3%;
+  left: 0;
+  border-bottom-left-radius: $bottom-left-radius;
+  border-bottom-right-radius: $bottom-right-radius;
+  @media(max-width:650px) {
+    width: 100%;
+  }
+}
+
+.table__content--height {
+  height: auto;
+  padding-bottom: 6px;
+  transition: $transition;
+}
+

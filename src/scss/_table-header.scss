@@ -1,0 +1,90 @@
+.table {
+  width: 640px;
+  @media(max-width:650px) {
+    width: 93%;
+  }
+
+
+  .table__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0 12px 3.5px 12px;
+  }
+
+
+
+  .cell--first {
+    width: 36%;
+    @media(max-width:604px) {
+      width: 47%;
+    }
+    @media(max-width:499px) {
+      width:53%;
+    }     
+  }
+  
+  .cell--second {
+    width: 26%;
+    @media(max-width:604px) {
+      width: 18%;
+    }
+    @media(max-width:499px) {
+      width:17%;
+    }      
+  }
+
+  .cell--third {
+    width: 25%;
+    @media(max-width:604px) {
+      width: 22%;
+    }
+    @media(max-width:499px) {
+      width:17%;
+    }      
+
+  }
+
+  .cell--fourth {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 11%;
+  }
+  .cell__header {
+    padding: 11.5px 15px;
+    text-shadow: $text-shadow;
+    color: $header-font-color;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.36px;
+    @media(max-width:499px) {
+      padding: 11.5px 0px;
+      font-size: 16px;
+    }
+  }
+
+  .cell__header--age {
+    padding-left: 5px;
+    @media(max-width:499px) {
+      margin-left: -14px;
+    }
+     }
+  
+
+  .cell__header--zodiac {
+    padding-left: 0px;
+    @media(max-width:499px) {
+      margin-left: -18px;
+    }
+  }
+
+
+  .cell__header--action {
+    padding-left: 0px;
+    @media(max-width:499px) {
+      margin-left: -8px;
+    }
+  }
+}
