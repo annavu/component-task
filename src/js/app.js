@@ -6,21 +6,8 @@ const lastRow = document.querySelector('.row--last');
 const table = document.querySelector('.table__content');
 const rows = document.querySelectorAll('.row');
 const deleteButtons = document.querySelectorAll('.cell--img');
-const icons = document.querySelectorAll('.fa');
-const tooltips = document.querySelectorAll('.tooltip');
 const tooltipContainer = document.querySelector('.tooltip-container');
-const noBtn = document.querySelector('.action__btn--no');
-
-
-// function displayTooltip(e,obj) {
-//   console.log(obj.dataset.tooltip);
-//   console.log(e);
-//   tooltipContainer.innerHTML = obj.dataset.tooltip + `<button class="tooltip-container__btn">yes</button>`;
-//   tooltipContainer.style.opacity = 1;
-//   tooltipContainer.style.top = e.pageY + 13 + 'px';
-//   tooltipContainer.style.left = `${e.pageX}px`;
-// }
-
+let timeout;
 
 
 function addClass() {
@@ -31,57 +18,82 @@ function removeClass() {
   table.classList.remove('table__content--height');
 }
 
-lastRow.addEventListener('mouseenter', addClass)
+function delayEnter() {
+  const that = this;
+  timeout = setTimeout(function() {
+    addClass()
+    that.classList.add('row--lasthover');
+  },500)
+}
 
-lastRow.addEventListener('mouseleave', removeClass)
+
+function delayLeave() {
+  clearTimeout(timeout)
+  removeClass()
+  this.classList.remove('row--lasthover')
+}
+
+
+function loopTroughStyles() {
+  rows.forEach(function(row) {
+    updateUi.removeClass(row)
+    updateUi.reinstateElement(row.children[3].children[1])
+  })
+}
+
+function handleTooltipRowLast(e) {
+  e.stopPropagation()
+  removeClass()
+  lastRow.addEventListener('mouseleave', delayLeave)
+}
+
+
+let handleClick = (e,obj) => {
+  updateUi.updateClass(obj.parentNode)
+  updateUi.removeElement(obj.children[1])
+  tooltip.displayTooltip(e, obj.parentNode);
+}
+
+lastRow.addEventListener('mouseenter', delayEnter)
+
+lastRow.addEventListener('mouseleave', delayLeave);
 
 lastRow.addEventListener('click', addClass)
 
 
-
 deleteButtons.forEach(function(btn) {
   btn.addEventListener('click', function(e) {
-
-    if(btn.parentNode.classList.contains('row--last')) {
-      console.log(123);
-      btn.parentNode.removeEventListener('mouseleave', removeClass)
-      // btn.parentNode.classList.add('row--clicked');
-      // btn.parentNode.classList.add('nohover');
-      updateUi.updateClass(this.parentNode)
-      console.log(btn.children[1])
-      // btn.children[1].remove()
-      updateUi.removeElement(this.children[1])
-      tooltip.displayTooltip(e, this.parentNode);
-
-      // btn.parentNode.remove();
-      table.style.height = 'auto';
+    if(this.parentNode.classList.contains('row--last')) {
+      loopTroughStyles();
+      handleClick(e,this);
+      addClass();
+      btn.parentNode.removeEventListener('mouseleave', delayLeave);
     } else {
-      
-        btn.parentNode.classList.add('row--clicked');
-        btn.parentNode.classList.add('nohover');
-        console.log(btn.children[1])
-        updateUi.removeElement(this.children[1])
-        tooltip.displayTooltip(e, this.parentNode)
-       
-        // btn.parentNode.remove();
-        // table.style.height = 'auto';
-        
+      loopTroughStyles();
+      handleClick(e, this);
+      removeClass();
+      lastRow.addEventListener('mouseleave', delayLeave);
+      updateUi.removeClass(lastRow);
+      updateUi.reinstateElement(lastRow.children[3].children[1]);
     }
   })
 })
 
+
 tooltipContainer.addEventListener('click', function(e) {
   if(e.target.classList.contains('action__btn--yes')) {
-    console.log(e.target)
-    tooltipContainer.parentNode.remove();
+    if(tooltipContainer.parentNode.classList.contains('row--last')) {
+      handleTooltipRowLast(e)
+    };
     table.style.height = 'auto';
-  } else if(e.target.classList.contains('action__btn--no')) {
+    tooltipContainer.parentNode.remove();
+  } else {
+    if(tooltipContainer.parentNode.classList.contains('row--last')) {
+      handleTooltipRowLast(e);
+    };
     updateUi.removeClass(tooltipContainer.parentNode);
-    tooltipContainer.previousElementSibling.children[1].style.display = 'block';
-    // console.log(tooltipContainer.previousElementSibling.children[1])
-    console.log(noBtn.parentNode.parentNode.parentNode)
-    console.log(tooltipContainer.parentNode)
+    // tooltipContainer.previousElementSibling.children[1].style.display = 'block';
+    updateUi.reinstateElement(tooltipContainer.previousElementSibling.children[1]);
     tooltip.hideTooltip(tooltipContainer.parentNode);
-    console.log(e.target.closest('.row'));
   }
 })
