@@ -1,8 +1,10 @@
+import { updateUi } from './updateUi';
+
+
 class Tooltip {
 
   constructor() {
     this.tooltipContainer = document.querySelector('.tooltip-container');
-    this.table = document.querySelector('.table__content');
     this.action = document.querySelector('.action');
   }
 
@@ -21,28 +23,15 @@ class Tooltip {
     obj.removeChild(this.tooltipContainer);
   }
 
+
   displayTooltip(e,obj) {
     console.log(obj.dataset.tooltip);
     console.log(e);
     this.tooltipContainer.innerHTML = obj.dataset.tooltip;
-    this.tooltipContainer.appendChild(this.action)
-    obj.appendChild(this.tooltipContainer)
-    if (obj.nextElementSibling === null){
-      this.tooltipContainer.style.top = '-77%';
-      console.log(obj.nextSibling)
-    } else {
-      this.tooltipContainer.style.top = '103%';
-      console.log(obj.nextElementSibling)
-    }
-    
-    this.tooltipContainer.style.left = '50%';
-    // this.tooltipContainer.style.opacity = 1;
-    this.fadeIn(this.tooltipContainer)
-
-    const yesBtn = document.querySelector('.action__btn--yes');
-    const noBtn = document.querySelector('.action__btn--no');
-    const btn = document.querySelectorAll('.action__btn');
-    
+    this.tooltipContainer.appendChild(this.action);
+    obj.appendChild(this.tooltipContainer);
+    updateUi.styleIf(obj.nextElementSibling);
+    this.fadeIn(this.tooltipContainer); 
   }
 }
 
