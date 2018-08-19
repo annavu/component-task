@@ -259,7 +259,7 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 10px;
-    border-bottom-left-radius: $bottom-left-radius; 
+    // border-bottom-left-radius: $bottom-left-radius; 
 
     .action{
       height: 100%;
@@ -273,7 +273,7 @@
         font-size: 12px;
         padding: 8px 25px;
         cursor: pointer;
-        border-left: 1px solid #000;
+        border-left: 0.5px solid #000;
         @media(max-width:499px) {
           width: 100%;
         }
@@ -281,7 +281,8 @@
 
       .action__btn--yes {
         background: $green;
-        border-bottom-right-radius: $bottom-right-radius;
+        border-left: 1px solid #000;
+        // border-bottom-right-radius: $bottom-right-radius;
       }
     }
   }
