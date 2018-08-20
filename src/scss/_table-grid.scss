@@ -1,0 +1,9 @@
+$grid-columns: 24;
+
+@for $i from 1 through $grid-columns {
+ 
+  .col-#{$i} { 
+      width: 640px / $grid-columns * $i;
+  }
+
+}
