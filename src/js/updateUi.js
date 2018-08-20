@@ -16,14 +16,6 @@ class UpdateUi {
     obj.classList.remove('row--lasthover');
   }
 
-  // removeElement(obj) {
-  //   if(obj){
-  //   obj.style.display = 'none'
-    
-  //   } else{
-  //     obj.style.opacity = '0.5';
-  //   }
-  // }
 
   removeElement(obj) {
     if(obj){
@@ -35,11 +27,6 @@ class UpdateUi {
     obj.style.display = 'block'
   }
 
-
-  // removeListener(obj) {
-  //   obj.removeEventListener('mouseleave', this.removeClass)
-  //   console.log(obj)
-  // }
 
 
   styleIf(el) {

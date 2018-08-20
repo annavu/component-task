@@ -25,8 +25,6 @@ class Tooltip {
 
 
   displayTooltip(e,obj) {
-    console.log(obj.dataset.tooltip);
-    console.log(e);
     this.tooltipContainer.innerHTML = obj.dataset.tooltip;
     this.tooltipContainer.appendChild(this.action);
     obj.appendChild(this.tooltipContainer);

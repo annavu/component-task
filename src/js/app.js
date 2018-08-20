@@ -92,7 +92,6 @@ tooltipContainer.addEventListener('click', function(e) {
       handleTooltipRowLast(e);
     };
     updateUi.removeClass(tooltipContainer.parentNode);
-    // tooltipContainer.previousElementSibling.children[1].style.display = 'block';
     updateUi.reinstateElement(tooltipContainer.previousElementSibling.children[1]);
     tooltip.hideTooltip(tooltipContainer.parentNode);
   }
