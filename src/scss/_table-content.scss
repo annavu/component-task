@@ -18,6 +18,10 @@
     cursor: pointer;
     margin: 0  12px;
     border-bottom: $border-bottom;  
+    height: 40px;
+    @media(max-width:604px) {
+      height: auto;
+    }
 
     .cell__text {
       padding: 11.5px 15px;
