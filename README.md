@@ -9,6 +9,8 @@ Used technologies and tools:
 - JavaScript
 - Webpack
 
+[see LIVE](https://annavu.github.io/component-task/dist/)
+
 ---
 to run project clone or download this repository, then:
 ```
